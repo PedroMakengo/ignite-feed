@@ -15,18 +15,19 @@ interface Author {
   avatarUrl: string;
 }
 
-interface Content {
+ interface Content {
   type: "paragraph" | "link";
   content: string;
 }
 
-interface PostProps {
+export interface PostProps {
+  id?: number;
   author: Author;
   publishedAt: Date;
   content: Content[];
 }
 
-export function Post({ author, content, publishedAt }: PostProps) {
+export function Post({ author, publishedAt,  content }: PostProps) {
   const [comments, setComments] = useState(["Post muito bacana"]);
   const [newCommentText, setNewCommentText] = useState("");
 
